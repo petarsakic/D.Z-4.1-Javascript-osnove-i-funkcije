@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaci</title>
+</head>
+<body>
+    <h2>DZ_4_1/vjezbe04-dz-z01</h2>
+    <script type="text/javascript">
+        // a)
+        var Broj = 19;
+
+        // b)
+        var Niz1 = 'Niz znakova';
+
+        // c)
+        var Niz2 = '3.14';
+
+        // d)
+        var Niz3 = 'U dva<br/>retka';
+
+        // e)
+        var Logicka = true;
+
+        // g)
+        document.write("Broj: " + Broj + "<br/>");
+        document.write("Niz1: " + Niz1 + "<br/>");
+        document.write("Niz2: " + Niz2 + "<br/>");
+        document.write("Niz3: " + Niz3 + "<br/>");
+        document.write("Logicka: " + Logicka + "<br/>");
+
+        // h)
+        Logicka = false;
+        document.write("Promijenjena Logicka: " + Logicka + "<br/>");
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z02</h2>
+    <script type="text/javascript">
+        for (var i = 2; i <= 100; i += 2) {
+            var kvadrat = i * i;
+            console.log(i + " - " + kvadrat);
+            document.write(i + " - " + kvadrat + "<br/>");
+        }
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z03</h2>
+    <script type="text/javascript">
+        function isPrime(num) {
+            for (var i = 2; i < num; i++)
+                if (num % i === 0) return false;
+            return num > 1;
+        }
+
+        for (var i = 1; i <= 1000; i++) {
+            if (isPrime(i)) {
+                console.log(i);
+                document.write(i + "<br/>");
+            }
+        }
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z04</h2>
+    <script type="text/javascript">
+        var polje = new Array(1,2,3,4,7,8,5,6,9,55,12,4,85);
+
+        // a)
+        document.write("Inicijalna dužina polja: " + polje.length + "<br/>");
+
+        // b)
+        document.write("Sortirano polje od najvećeg ka najmanjem: " + polje.sort(function(a, b) { return b - a; }) + "<br/>");
+
+        // c)
+        document.write("Sortirano polje od najmanjeg ka najvećem: " + polje.sort(function(a, b) { return a - b; }) + "<br/>");
+
+        // d)
+        var sortiranoPolje = polje.slice(0, -1);
+        document.write("Sortirano polje bez zadnjeg člana: " + sortiranoPolje + "<br/>");
+
+        // e)
+        sortiranoPolje.push(19, 22);
+        document.write("Polje s dodanim članovima: " + sortiranoPolje + "<br/>");
+
+        // f)
+        var polje2 = ["Banana", "Orange", "Apple", "Mango"];
+        var polje_final = sortiranoPolje.concat(polje2);
+        document.write("Spojeno polje: " + polje_final + "<br/>");
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z05</h2>
+    <script type="text/javascript">
+        var objekt1 = { firstName: "Petar", lastName: "Šakić", age: 40, eyeColor: "green" };
+        var objekt2 = { firstName: "Mate", lastName: "Matić", age: 25, eyeColor: "blue" };
+        var objekt3 = { firstName: "Ivo", lastName: "Ivić", age: 30, eyeColor: "brown" };
+
+        var objekti = [objekt1, objekt2, objekt3];
+
+        for (var i = 0; i < objekti.length; i++) {
+            for (var key in objekti[i]) {
+                console.log(key + ": " + objekti[i][key]);
+                document.write(key + ": " + objekti[i][key] + "<br/>");
+            }
+            document.write("<br/>");
+        }
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z06</h2>
+    <script type="text/javascript">
+        var pas = {
+            ime: "Reks",
+            godine: 2,
+            zvuk: function() {
+                return "AV AV!";
+            }
+        };
+
+        console.log(pas.ime + " ima " + pas.godine + " godine.");
+        console.log(pas.ime + " kaže " + pas.zvuk());
+        document.write(pas.ime + " ima " + pas.godine + " godine.<br/>");
+        document.write(pas.ime + " kaže " + pas.zvuk() + "<br/>");
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z07</h2>
+    <script type="text/javascript">
+        var kvadratIliPogreska = function(x) {
+            if (typeof x === 'number') {
+                return x * x;
+            } else {
+                return "Pogreška: Nije unesen broj.";
+            }
+        };
+
+        console.log(kvadratIliPogreska(5));
+        console.log(kvadratIliPogreska("abc"));
+        document.write(kvadratIliPogreska(5) + "<br/>");
+        document.write(kvadratIliPogreska("abc") + "<br/>");
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z08</h2>
+    <script type="text/javascript">
+        var arr = ['Ovo', 'je', 'My', 'prvi', 'komad', 'OF', 'JAVASCRIPT', 'koda', 'Koji', 'je', 'proradio'];
+
+        var novoPolje = arr.filter(function(element) {
+            return element === element.toUpperCase() || element.length >= 5;
+        });
+
+        console.log(novoPolje);
+        document.write(novoPolje.join(", ") + "<br/>");
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z09</h2>
+    <script type="text/javascript">
+        function isPerfectNumber(num) {
+            var sum = 0;
+            for (var i = 1; i < num; i++) {
+                if (num % i === 0) {
+                    sum += i;
+                }
+            }
+            return sum === num;
+        }
+
+        function printPerfectNumbers(limit) {
+            for (var i = 1; i <= limit; i++) {
+                if (isPerfectNumber(i)) {
+                    console.log(i);
+                    document.write(i + "<br/>");
+                }
+            }
+        }
+
+        printPerfectNumbers(1000);
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z10</h2>
+    <script type="text/javascript">
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function printRandomNumbers(count, min, max) {
+            for (var i = 0; i < count; i++) {
+                var randomNumber = getRandomNumber(min, max);
+                console.log(randomNumber);
+                document.write(randomNumber + "<br/>");
+            }
+        }
+
+        printRandomNumbers(5, 1, 100);
+    </script>
+
+    <h2>DZ_4_1/vjezbe04-dz-z11</h2>
+    <script type="text/javascript">
+        const tempDay = ['2023-11-29', -1, 0, -0.5, 0.5, 0, 1.2, 1.8, 2, 3, 4, 6, 9, 12, 7, 6, 6, 8, 5, 4, 2, 3, 2, 1, 0];
+
+        var date = tempDay[0];
+        var minTemp = Math.min(...tempDay.slice(1));
+        var maxTemp = Math.max(...tempDay.slice(1));
+        var avgTemp = tempDay.slice(1).reduce((acc, temp) => acc + temp, 0) / (tempDay.length - 1);
+
+        console.log("Datum: " + date);
+        console.log("Najmanja temperatura: " + minTemp);
+        console.log("Najveća temperatura: " + maxTemp);
+        console.log("Prosječna temperatura: " + avgTemp);
+
+        document.write("Datum: " + date + "<br/>");
+        document.write("Najmanja temperatura: " + minTemp + "<br/>");
+        document.write("Najveća temperatura: " + maxTemp + "<br/>");
+        document.write("Prosječna temperatura: " + avgTemp + "<br/>");
+    </script>
+</body>
+</html>
